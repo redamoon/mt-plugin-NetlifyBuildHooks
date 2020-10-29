@@ -1,0 +1,18 @@
+id: NetlifyBuildHooks
+key: NetlifyBuildHooks
+name: <__trans phrase="Netlify Build Hooks Plugin">
+version: 0.0.1
+description: <__trans phrase="_PLUGIN_DESCRIPTION">
+author_name: <__trans phrase="_PLUGIN_AUTHOR">
+author_link: https://www.redamoon.net/
+doc_link: https://github.com/redamoon/mt-plugin-NetlifyBuildHooks
+l10n_class: NetlifyBuildHooks::L10N
+
+system_config_template: netlify_build_hooks_setting.tmpl
+settings:
+    netlify_build_hooks:
+        default:
+        scope: system
+
+callbacks:
+    MT::App::CMS::cms_post_save.entry: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::post_save_entry
