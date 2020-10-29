@@ -1,1 +1,1 @@
-# mt-plugin-NetlifyBuildHook
+# mt-plugin-NetlifyBuildHooks
