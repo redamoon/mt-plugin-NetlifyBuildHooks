@@ -1,5 +1,21 @@
-<mtapp:setting id="netlify_build_hooks_setting" label="<__trans phrase='Netlify Build Hooks'>"
-    hint="<__trans phrase="Please input the Netlify Build Hooks ID.">" show_hint=1>
-    <input type="text" name="netlify_build_hooks" id="netlify_build_hooks"
-        value="<mt:GetVar name="netlify_build_hooks">" />
+<mtapp:setting
+  id="netlify_build_hooks_setting"
+  show_hint=1
+>
+  <div class="mt-widget">
+    <div class="mt-widget__title">Netlify Build Hooks ID</div>
+    <div class="mt-widget__content">
+      <div class="form-inline mb-3">
+        <p class="first-child"><__trans phrase='https://api.netlify.com/build_hooks/' /></p>
+        <input
+          type="text"
+          name="netlify_build_hooks"
+          id="netlify_build_hooks"
+          value="<mt:GetVar name="netlify_build_hooks">"
+          class="form-control w-100"
+        />
+        <small class="form-text text-muted last-child"><__trans phrase='Please input the Netlify Build Hooks ID.'></small>
+      </div>
+    </div>
+  </div>
 </mtapp:setting>
