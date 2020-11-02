@@ -6,7 +6,7 @@ use LWP::UserAgent;
 use HTTP::Request::Common;
 use JSON;
 
-sub post_save_entry {
+sub build_hooks {
     my ($cb, $app, $obj, $org_obj) = @_;
     my $plugin = MT->component('NetlifyBuildHooks');
 

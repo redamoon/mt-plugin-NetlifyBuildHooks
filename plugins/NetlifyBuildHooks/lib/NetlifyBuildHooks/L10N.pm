@@ -1,5 +1,5 @@
-package NetlifyBuildHook::L10N;
+package NetlifyBuildHooks::L10N;
 use strict;
-use base 'MT::NetlifyBuildHook::L10N';
+use base 'MT::NetlifyBuildHooks::L10N';
 
 1;
