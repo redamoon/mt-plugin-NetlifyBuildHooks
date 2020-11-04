@@ -25,6 +25,20 @@ sub entry_builds {
     $ua->request($request);
 }
 
+sub entry_delete_builds {
+    my ($cb, $app, $obj, $org_obj) = @_;
+    my $plugin = MT->component('NetlifyBuildHooks');
+
+    my $app_id = $plugin->get_config_value('netlify_build_hooks', 'system');
+    return 1 unless $app_id;
+
+    my $url = NetlifyBuildHooksUrl . $app_id; #webhook url
+    my $request = POST($url, Content_Type => 'application/json', Content => encode_json({}));
+
+    my $ua = LWP::UserAgent->new;
+    $ua->request($request);
+}
+
 sub page_builds {
     my ($cb, $app, $obj, $org_obj) = @_;
     my $plugin = MT->component('NetlifyBuildHooks');
