@@ -27,7 +27,7 @@ sub request {
 
 sub post_save_builds {
     my ($cb, $app, $obj, $org_obj) = @_;
-    return 1 unless $org_obj->status == MT::EntryStatus::HOLD() && $org_obj->status == MT::EntryStatus::RELEASE();
+    return 1 unless $org_obj && $org_obj->status == MT::EntryStatus::RELEASE();
     require MT::Util::Log;
     MT::Util::Log->init();
     MT::Util::Log->info('NetlifyBuildHooks: post_save:obj:' . ref($obj) . ', status=' . status_text($obj->status));
