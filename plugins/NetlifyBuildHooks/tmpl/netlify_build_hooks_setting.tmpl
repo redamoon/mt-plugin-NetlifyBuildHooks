@@ -5,17 +5,30 @@
   <div class="mt-widget">
     <div class="mt-widget__title">Netlify Build Hooks ID</div>
     <div class="mt-widget__content">
-      <div class="form-inline mb-3">
+      <div class="form-block mb-3">
+        <h3 class="h3">開発環境 Netlify ID</h3>
         <p class="first-child"><__trans phrase='https://api.netlify.com/build_hooks/' /></p>
         <input
           type="text"
-          name="netlify_build_hooks"
-          id="netlify_build_hooks"
-          value="<mt:Var name='netlify_build_hooks' />"
+          name="netlify_build_hooks_develop"
+          id="netlify_build_hooks_develop"
+          value="<mt:Var name='netlify_build_hooks_develop' />"
           class="form-control w-100"
         />
-        <p class="form-text text-muted last-child">
-          <__trans phrase='Please input the Netlify Build Hooks ID.' />
+        <p class="form-text text-muted mb-3">
+          <__trans phrase='Enter your Netlify Build Hooks ID for your development environment.' />
+        </p>
+        <h3 class="h3">本番環境 Netlify ID</h3>
+        <p class="first-child"><__trans phrase='https://api.netlify.com/build_hooks/' /></p>
+        <input
+          type="text"
+          name="netlify_build_hooks_production"
+          id="netlify_build_hooks_production"
+          value="<mt:Var name='netlify_build_hooks_production' />"
+          class="form-control w-100"
+        />
+        <p class="form-text text-muted mb-3">
+          <__trans phrase='Enter your production Netlify Build Hooks ID.' />
         </p>
       </div>
     </div>

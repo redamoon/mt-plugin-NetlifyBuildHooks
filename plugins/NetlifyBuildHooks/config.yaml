@@ -8,11 +8,11 @@ author_link: https://www.redamoon.net/
 doc_link: https://github.com/redamoon/mt-plugin-NetlifyBuildHooks
 l10n_class: NetlifyBuildHooks::L10N
 
-system_config_template: netlify_build_hooks_setting.tmpl
+blog_config_template: netlify_build_hooks_setting.tmpl
 settings:
     netlify_build_hooks:
         default:
-        scope: system
+        scope: blog
 
 callbacks:
     cms_post_save.entry: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::post_save_builds
