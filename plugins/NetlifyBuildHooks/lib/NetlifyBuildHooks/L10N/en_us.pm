@@ -6,7 +6,7 @@ use vars qw( %Lexicon );
 
 %Lexicon = (
     '_PLUGIN_DESCRIPTION' => 'Run Netlify Build Hooks',
-    '_PLUGIN_AUTHOR' => 'redamoon',
+    '_PLUGIN_AUTHOR'      => 'redamoon',
 );
 
 1;

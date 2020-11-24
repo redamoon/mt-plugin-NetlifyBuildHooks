@@ -1,4 +1,4 @@
-package NetlifyBuildHooks::Callbacks;
+package NetlifyBuildHooks::CMS;
 use strict;
 
 use MT;
@@ -13,7 +13,7 @@ sub request {
     require MT::Util::Log;
     MT::Util::Log->init();
     my $plugin = MT->component('NetlifyBuildHooks');
-    my $app_id = $plugin->get_config_value('netlify_build_hooks_develop', 'system');
+    my $app_id = $plugin->get_config_value($id, 'system');
     MT::Util::Log->info('NetlifyBuildHooks: no app_id') unless $app_id;
     return unless $app_id;
 
@@ -23,7 +23,7 @@ sub request {
     my $request = POST($url, Content_Type => 'application/json', Content => encode_json({}));
     my $response = $ua->request($request);
     return unless $response->is_success();
-    return 2;
+    return $id;
 }
 
 sub production_build {
@@ -31,7 +31,7 @@ sub production_build {
 }
 
 sub develop_build {
-    return 1 unless request();
+    return 1 unless request('netlify_build_hooks_develop');
 }
 
 1

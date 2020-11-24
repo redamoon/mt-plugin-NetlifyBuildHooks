@@ -9,11 +9,32 @@ doc_link: https://github.com/redamoon/mt-plugin-NetlifyBuildHooks
 l10n_class: NetlifyBuildHooks::L10N
 
 blog_config_template: netlify_build_hooks_setting.tmpl
+applications:
+    cms:
+        methods:
+            netlify_build_hooks_production: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::production_build
+            netlify_build_hooks_develop: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::develop_build
+        menus:
+            tools:netlify_build_hooks_develop:
+                label: '開発環境ビルド'
+                order: 1000
+                mode: netlify_build_hooks_develop
+                permission: 'administer,administer_website'
+                view:
+                    - blog
+                    - website
+            tools:netlify_build_hooks_production:
+                label: '本番環境ビルド'
+                order: 1001
+                mode: netlify_build_hooks_production
+                permission: 'administer,administer_website'
+                view:
+                    - blog
+                    - website
 settings:
-    netlify_build_hooks:
+    netlify_build_hooks_develop:
         default:
         scope: blog
-
-callbacks:
-    cms_post_save.entry: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::post_save_builds
-    cms_post_delete.entry: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::delete_builds
+    netlify_build_hooks_production:
+        default:
+        scope: blog
