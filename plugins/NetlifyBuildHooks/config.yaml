@@ -17,7 +17,3 @@ settings:
 callbacks:
     cms_post_save.entry: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::post_save_builds
     cms_post_delete.entry: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::delete_builds
-#    cms_post_save.page: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::post_save_builds
-#    cms_post_delete.page: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::delete_builds
-#    cms_post_save.content_data: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::content_data_builds
-#    cms_post_delete.content_data: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::delete_builds
