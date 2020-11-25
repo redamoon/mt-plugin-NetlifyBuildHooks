@@ -12,21 +12,14 @@ blog_config_template: netlify_build_hooks_setting.tmpl
 applications:
     cms:
         methods:
-            netlify_build_hooks_production: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::production_build
-            netlify_build_hooks_develop: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::develop_build
+            netlify_build_hooks: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::netlify
+            production: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::production_build
+            save_production: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::save_production
         menus:
-            tools:netlify_build_hooks_develop:
-                label: '開発環境ビルド'
+            tools:netlify_build_hooks:
+                label: 'Netlify'
                 order: 1000
-                mode: netlify_build_hooks_develop
-                permission: 'administer,administer_website'
-                view:
-                    - blog
-                    - website
-            tools:netlify_build_hooks_production:
-                label: '本番環境ビルド'
-                order: 1001
-                mode: netlify_build_hooks_production
+                mode: netlify_build_hooks
                 permission: 'administer,administer_website'
                 view:
                     - blog
