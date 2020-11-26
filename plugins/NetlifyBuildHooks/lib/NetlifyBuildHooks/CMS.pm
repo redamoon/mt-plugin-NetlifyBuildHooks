@@ -37,7 +37,7 @@ sub request {
 # 設定一覧
 sub setting {
     my $app = shift;
-    my $plugin = MT->component('NetlifyBuildHooks');
+    my $plugin = plugin();
     $app->add_breadcrumb($plugin->translate('Netlify Build Hooks Plugin'));
     return instance->load_tmpl('netlify_build.tmpl');
 }
