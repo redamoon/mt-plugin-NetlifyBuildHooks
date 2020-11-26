@@ -9,11 +9,9 @@
         </h2>
         <mt:Var name='netlify_build_hooks_production' />
         <div class="mt-widget__content">
-            <mt:If name="save_production">
             <mtapp:statusmsg class="success">
-                <__trans phrase="Production build" />を実行しました。
+                <__trans phrase="I ran a production build of Netlify." />
             </mtapp:statusmsg>
-            </mt:If>
             <form method="post" action="<mt:Var name='script_url' />" id="production">
                 <input type="hidden" name="__mode" value="netlify_build_hooks_production" />
                 <input type="hidden" name="blog_id" value="<mt:Var name='blog_id' escape='html' />" />
@@ -30,8 +28,16 @@
             <__trans phrase="Develop build" />
         </h2>
         <div class="mt-widget__content">
-            <div class="alert alert-success"><__trans phrase="Develop build" />を実行しました。</div>
-            <button type="submit" class="btn btn-default"><__trans phrase="Develop" /><__trans phrase="Build" /></button>
+            <mtapp:statusmsg class="success">
+                <__trans phrase="I ran a development build of Netlify." />
+            </mtapp:statusmsg>
+            <form method="post" action="<mt:Var name='script_url' />" id="develop">
+                <input type="hidden" name="__mode" value="netlify_build_hooks_develop" />
+                <input type="hidden" name="blog_id" value="<mt:Var name='blog_id' escape='html' />" />
+                <input type="hidden" name="return_args" value="<mt:Var name='return_args' escape='html' />" />
+                <input type="hidden" name="magic_token" value="<mt:Var name='magic_token' escape='html' />" />
+                <button type="submit" class="btn btn-warning"><__trans phrase="Develop" /><__trans phrase="Build" /></button>
+            </form>
         </div>
     </div>
 

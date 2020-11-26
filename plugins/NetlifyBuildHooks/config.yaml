@@ -8,7 +8,9 @@ author_link: https://www.redamoon.net/
 doc_link: https://github.com/redamoon/mt-plugin-NetlifyBuildHooks
 l10n_class: NetlifyBuildHooks::L10N
 
-system_config_template: netlify_build_hooks_setting.tmpl
+# サイトの設定テンプレート
+blog_config_template: netlify_build_hooks_setting.tmpl
+
 callbacks:
     build: $NetlifyBuildHooks::NetlifyBuildHooks::Callbacks::post_save_builds
 applications:
@@ -17,6 +19,7 @@ applications:
             netlify_build_hooks_setting: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::setting
             netlify_build_hooks_request: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::request
             netlify_build_hooks_production: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::production
+            netlify_build_hooks_develop: $NetlifyBuildHooks::NetlifyBuildHooks::CMS::develop
         menus:
             tools:netlify_build_hooks_setting:
                 label: 'Netlify'
@@ -29,7 +32,7 @@ applications:
 settings:
     netlify_build_hooks_develop:
         default:
-        scope: system
+        scope: blog
     netlify_build_hooks_production:
         default:
-        scope: system
+        scope: blog
