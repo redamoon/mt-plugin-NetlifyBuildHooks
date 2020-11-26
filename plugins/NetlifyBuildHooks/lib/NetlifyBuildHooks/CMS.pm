@@ -11,9 +11,6 @@ sub plugin {
     return MT->component('NetlifyBuildHooks');
 }
 sub instance { MT->instance->component('NetlifyBuildHooks'); }
-sub get_blog_id {
-    my $app = shift;
-}
 
 sub request {
     my ($key, $blog_id) = @_;
