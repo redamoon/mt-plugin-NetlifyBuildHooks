@@ -35,8 +35,15 @@ sub request {
 sub setting {
     my $app = shift;
     my $plugin = plugin();
+    my $blog = $app->blog;
+    my $blog_id;
+    $blog_id = $blog->id;
     $app->add_breadcrumb($plugin->translate('Netlify Build Hooks Plugin'));
-    return instance->load_tmpl('netlify_build.tmpl');
+    my %param = (
+        netlify_build_hooks_production => $plugin->get_config_value('netlify_build_hooks_production', 'blog:' . $blog_id),
+        netlify_build_hooks_develop    => $plugin->get_config_value('netlify_build_hooks_develop', 'blog:' . $blog_id)
+    );
+    return instance->load_tmpl('netlify_build.tmpl', \%param);
 }
 
 # 本番サイトを保存する

@@ -14,6 +14,7 @@ use vars qw( %Lexicon );
     'Build'                                                               => 'ビルドする',
     'I ran a development build of Netlify.'                               => 'Netlifyの開発ビルドを実行しました。',
     'I ran a production build of Netlify.'                                => 'Netlifyの本番ビルドを実行しました。',
+    'No Netlify build hooks are defined.'                              => 'Netlifyビルドフックは定義されていません。',
     'Enter your Netlify Build Hooks ID for your development environment.' => '開発環境のNetlify Build Hooks IDを入力してください。',
     'Enter your production Netlify Build Hooks ID.'                       => '本番環境のNetlify Build Hooks IDを入力してください。',
     'Netlify Build Hooks Plugin'                                          => 'Netlify Build Hooks',
