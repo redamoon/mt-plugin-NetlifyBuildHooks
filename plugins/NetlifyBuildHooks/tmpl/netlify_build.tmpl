@@ -7,14 +7,15 @@
             <svg role="img" class="mt-icon"><title><__trans phrase="Build" /></title><use xlink:href="<mt:StaticWebPath />images/sprite.svg#ic_build" /></svg>
             <__trans phrase="Production build" />
         </h2>
+        <mt:Var name='netlify_build_hooks_production' />
         <div class="mt-widget__content">
-            <mt:If name="netlify_build_hooks">
+            <mt:If name="save_production">
             <mtapp:statusmsg class="success">
                 <__trans phrase="Production build" />を実行しました。
             </mtapp:statusmsg>
             </mt:If>
             <form method="post" action="<mt:Var name='script_url' />" id="production">
-                <input type="hidden" name="__mode" value="save_production" />
+                <input type="hidden" name="__mode" value="netlify_build_hooks_production" />
                 <input type="hidden" name="blog_id" value="<mt:Var name='blog_id' escape='html' />" />
                 <input type="hidden" name="return_args" value="<mt:Var name='return_args' escape='html' />" />
                 <input type="hidden" name="magic_token" value="<mt:Var name='magic_token' escape='html' />" />
