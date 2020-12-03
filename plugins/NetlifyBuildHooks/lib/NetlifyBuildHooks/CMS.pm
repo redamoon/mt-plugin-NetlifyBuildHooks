@@ -13,7 +13,7 @@ sub plugin {
 sub instance { MT->instance->component('NetlifyBuildHooks'); }
 
 sub request {
-    my ($key, $blog_id) = @_;
+    my ($key, $blog_id, $save_name, $app, $error_name) = @_;
     require MT::Util::Log;
     MT::Util::Log->init();
     my $plugin = plugin();
@@ -27,6 +27,12 @@ sub request {
     return unless $ua;
     my $request = POST($url, Content_Type => 'application/json', Content => encode_json({}));
     my $response = $ua->request($request);
+
+    if ($response->code == 200) {
+        $app->add_return_arg($save_name => 1),
+    } else {
+        $app->add_return_arg($error_name => 1)
+    };
     return unless $response->is_success();
     return 1;
 }
@@ -52,8 +58,7 @@ sub production {
     my $blog = $app->blog;
     my $blog_id;
     $blog_id = $blog->id;
-    $app->add_return_arg(save_production => 1);
-    request('netlify_build_hooks_production', $blog_id);
+    request('netlify_build_hooks_production', $blog_id, 'save_production', $app, 'error_production');
     $app->call_return;
 }
 
@@ -63,8 +68,7 @@ sub develop {
     my $blog = $app->blog;
     my $blog_id;
     $blog_id = $blog->id;
-    $app->add_return_arg(save_develop => 1);
-    request('netlify_build_hooks_develop', $blog_id);
+    request('netlify_build_hooks_develop', $blog_id, 'save_develop', $app, 'error_develop');
     $app->call_return;
 }
 
