@@ -12,9 +12,14 @@
         </h2>
         <div class="mt-widget__content">
             <mt:If name="request.save_production">
-            <mtapp:statusmsg class="success">
-                <__trans phrase="I ran a production build of Netlify." />
-            </mtapp:statusmsg>
+                <mtapp:statusmsg class="success">
+                    <__trans phrase="I ran a production build of Netlify." />
+                </mtapp:statusmsg>
+            </mt:If>
+            <mt:If name="request.error_production">
+                <mtapp:statusmsg class="error">
+                    <__trans phrase="Production" />：<__trans phrase="The POST request failed." />
+                </mtapp:statusmsg>
             </mt:If>
             <form method="post" action="<mt:Var name='script_url' />" id="production">
                 <input type="hidden" name="__mode" value="netlify_build_hooks_production" />
@@ -35,9 +40,14 @@
         </h2>
         <div class="mt-widget__content">
             <mt:If name="request.save_develop">
-            <mtapp:statusmsg class="success">
-                <__trans phrase="I ran a development build of Netlify." />
-            </mtapp:statusmsg>
+                <mtapp:statusmsg class="success">
+                    <__trans phrase="I ran a development build of Netlify." />
+                </mtapp:statusmsg>
+            </mt:If>
+            <mt:If name="request.error_develop">
+                <mtapp:statusmsg class="error">
+                    <__trans phrase="Develop" />：<__trans phrase="The POST request failed." />
+                </mtapp:statusmsg>
             </mt:If>
             <form method="post" action="<mt:Var name='script_url' />" id="develop">
                 <mt:Var name="__name" value="netlify_build_hooks_develop" />
@@ -52,9 +62,9 @@
     </mt:If>
 
     <mt:Unless name="hooks_flg">
-    <mtapp:statusmsg class="danger">
-        <__trans phrase="No Netlify build hooks are defined." />
-    </mtapp:statusmsg>
+        <mtapp:statusmsg class="danger">
+            <__trans phrase="No Netlify build hooks are defined." />
+        </mtapp:statusmsg>
     </mt:Unless>
 
 </mt:SetVarBlock>

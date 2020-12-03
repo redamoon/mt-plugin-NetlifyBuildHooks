@@ -7,6 +7,7 @@ use vars qw( %Lexicon );
 %Lexicon = (
     'Production'                                                          => '本番',
     'Develop'                                                             => '開発',
+    'The POST request failed.'                                            => 'POSTリクエストに失敗しました。',
     'Production ID'                                                       => '本番環境 ID',
     'Develop ID'                                                          => '開発環境 ID',
     'Production build'                                                    => '本番ビルド',
